@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Classifier</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Fashion MNIST Classifier</h1>
+            <p>Upload a clothing image and let the models predict what it is.</p>
+        </header>
+
+        <section class="card">
+            <form id="uploadForm">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" name="image" accept="image/*" hidden>
+                    <div class="upload-placeholder" id="uploadPlaceholder">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Drag & Drop or Click to Upload</span>
+                    </div>
+                    <img id="imagePreview" class="hidden" alt="Image preview">
+                </div>
+
+                <div class="controls">
+                    <div class="model-select">
+                        <label for="modelChoice">Select Model:</label>
+                        <div class="select-wrapper">
+                            <select id="modelChoice" name="model">
+                                <option value="knn">K-Nearest Neighbors (KNN)</option>
+                                <option value="dt">Decision Tree</option>
+                                <option value="nb">Naive Bayes</option>
+                            </select>
+                            <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-predict" id="predictBtn" disabled>Predict Image</button>
+            </form>
+
+            <div class="result-area hidden" id="resultArea">
+                <span class="result-label">Prediction</span>
+                <h2 class="result-value" id="resultValue">...</h2>
+                <p class="model-info" id="modelInfo">Model used: KNN</p>
+            </div>
+            
+            <div class="loading-area hidden" id="loadingArea">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

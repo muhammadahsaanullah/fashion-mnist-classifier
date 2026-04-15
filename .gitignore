@@ -1,0 +1,16 @@
+# Environments
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Large Model Files (Too large for standard GitHub)
+*.pkl
+*.joblib
+*.csv
+
+# Model training notebook checkpoints
+.ipynb_checkpoints/
