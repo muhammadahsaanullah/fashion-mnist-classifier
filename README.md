@@ -30,7 +30,7 @@ cd fashion-mnist-classifier
 
 > **Note:** The compiled machine learning models (`.pkl` files) are too large to be directly hosted on GitHub (e.g., the KNN model is ~188MB). You will need to regenerate them locally before running the app.
 
-1. Open the included `Untitled0.ipynb` notebook using **Jupyter Notebook**, **JupyterLab**, or an IDE like **VS Code**.
+1. Open the included `notebook.ipynb` notebook using **Jupyter Notebook**, **JupyterLab**, or an IDE like **VS Code**.
 2. Run all the original cells to load the Fashion MNIST dataset and successfully train the `knn_model`, `dt_model`, and `nb_model`.
 3. Create a **new code cell** at the very bottom of the notebook and paste the following Python code to save the models to disk:
    ```python
